@@ -124,7 +124,7 @@ public class ApiController {
 			@RequestParam(value = "albumReleaseDate") String albumReleaseDate,
 			@RequestParam(value = "albumSongs") String albumSongs,
 			@RequestParam(value = "albumGenre") String albumGenre,
-			@RequestParam(value = "albumCoverImage") String albumCoverImage ) { {
+			@RequestParam(value = "albumCoverImage") String albumCoverImage) {
 		Album albumToEdit = albumRepo.findByAlbumName(albumName);
 		if (albumToEdit != null) {
 			albumToEdit.setAlbumName(albumName);
@@ -138,17 +138,17 @@ public class ApiController {
 		return (Collection<Album>) albumRepo.findAll();
 	}
 
-			@RequestMapping(value = "/albums", method = RequestMethod.DELETE)
-			public Collection<Album> deleteAlbum(@RequestParam(value = "albumId") Long albumId) {
-				for (Song song : albumRepo.findByAlbumId(albumId).getSongs()) {
-					songRepo.delete(song);
-				}
-				songRepo.delete(albumRepo.findByAlbumId(albumId));
-				System.out.println("Deleted Album");
-				return (Collection<Album>) albumRepo.findAll();
-			}
-			
-	}
+//			@RequestMapping(value = "/albums", method = RequestMethod.DELETE)
+//			public Collection<Album> deleteAlbum(@RequestParam(value = "albumId") Long albumId) {
+//				for (Song song : albumRepo.findByAlbumId(albumId).getSongs()) {
+//					songRepo.delete(song);
+//				}
+//				songRepo.delete(albumRepo.findByAlbumId(albumId));
+//				System.out.println("Deleted Album");
+//				return (Collection<Album>) albumRepo.findAll();
+//			}
+//			
+//	}
 }
 
 
