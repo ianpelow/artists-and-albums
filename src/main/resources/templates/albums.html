@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Albums</title>
+</head>
+<body>
+	<header>
+		<h1>Albums</h1>
+	</header>
+
+	<main>
+		<ul class="albumList">
+			<li th:each="album : albums">
+				<a
+					th:href="|@{/albums/}${album.id}|" th:text="${album.name}"
+				></a>
+				<button class="deleteAlbum">Remove</button>
+			</li>
+		</ul>
+		<form th:action="|@{/albums/}/add-album|" method="POST">
+			<label for="albumName">
+				<input type="text" name="albumName" placeholder="Album Name" />
+			</label>
+			<label for="albumId">
+				<input type="text" name="albumId" placeholder="Album Id" />
+			</label>
+			<label for="albumReleaseDate">
+				<input type="text" name="albumReleaseDate" placeholder="Release Date" />
+			</label>
+			<label for="albumSongs">
+				<input type="text" name="albumSongs" placeholder="Song (add more on songs page)" />
+			</label>
+			<label for="albumGenre">
+				<input type="text" name="albumGenre" placeholder="Genre" />
+			</label>
+			<label for="albumCoverImage">
+				<input type="text" name="albumCoverImage" placeholder="Cover Image" />
+			</label>
+			<button type="submit" value="Submit"> Add album</button>
+		</form>
+	</main>
+
+	<footer>
+		<small>&copy; Album List 2018</small>
+	</footer>
+	
+	<script src="/js/albums.js"></script>
+</body>
+</html>

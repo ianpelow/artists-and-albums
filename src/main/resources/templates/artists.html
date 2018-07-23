@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Artists</title>
+</head>
+<body>
+	<header>
+		<h1>Artists</h1>
+	</header>
+
+	<main>
+		<ul class="artistList">
+			<li th:each="artist : artists">
+				<a
+					th:href="|@{/artists/}${artist.id}|" th:text="${artist.name}"
+				></a>
+				<button class="deleteArtist">Remove</button>
+			</li>
+		</ul>
+		<form th:action="|@{/artists/}/add-artist|" method="POST">
+			<label for="artistName">
+				<input type="text" name="artistName" placeholder="Artist Name" />
+			</label>
+			<label for="artistId">
+				<input type="text" name="stateId" placeholder="Artist Id" />
+			</label>
+			<label for="artistAlbum">
+				<input type="text" name="artistAlbum" placeholder="Artist Album" />
+			</label>
+			<label for="artistRecordLabel">
+				<input type="text" name="artistRecordLabel" placeholder="Artist Record Label" />
+			</label>
+			<button type="submit" value="Submit"> Add artist</button>
+		</form>
+	</main>
+
+	<footer>
+		<small>&copy; Artist List 2018</small>
+	</footer>
+	
+	<script src="/js/artists.js"></script>
+</body>
+</html>

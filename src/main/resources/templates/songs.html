@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Songs</title>
+</head>
+<body>
+	<header>
+		<h1>Songs</h1>
+	</header>
+
+	<main>
+		<ul class="songList">
+			<li th:each="song : songs">
+				<a
+					th:href="|@{/songs/}${song.id}|" th:text="${song.name}"
+				></a>
+				<button class="deleteSong">Remove</button>
+			</li>
+		</ul>
+		<form th:action="|@{/songs/}/add-song|" method="POST">
+			<label for="songName">
+				<input type="text" name="songName" placeholder="Song Name" />
+			</label>
+			<label for="songId">
+				<input type="text" name="songId" placeholder="Song Id" />
+			</label>
+			<label for="songLength">
+				<input type="text" name="songLength" placeholder="Song Length" />
+			</label>
+			<label for="songLyrics">
+				<input type="text" name="songLyrics" placeholder="Lyrics" />
+			</label>
+			<label for="songRating">
+				<input type="text" name="songRating" placeholder="Rating" />
+			</label>
+			<button type="submit" value="Submit"> Add song</button>
+		</form>
+	</main>
+
+	<footer>
+		<small>&copy; Song List 2018</small>
+	</footer>
+	
+	<script src="/js/songs.js"></script>
+</body>
+</html>
